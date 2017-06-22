@@ -180,10 +180,11 @@ def extract():
         r = r + text_words[b]
         b = b + 1
       index = keyword_index[text_words[a]]
-      if index not in result:
-        result[index] = r
-      else:
-        result[index] = result[index] + "^" + r
+      if r.find("...") == -1:
+        if index not in result:
+          result[index] = r
+        else:
+          result[index] = result[index] + "^" + r
       a = b
     else:
       print "error type of keyword" + text_words[a]+ "\t" + keywords_all[text_words[a]]
